@@ -44,4 +44,9 @@ describe User do
     before { @user.extension = "1" * 4 }
     it { should_not be_valid }
   end
+
+  describe "when extension is not a number" do
+    before { @user.extension = "a" * 5 }
+    it { should_not be_valid }
+  end
 end
