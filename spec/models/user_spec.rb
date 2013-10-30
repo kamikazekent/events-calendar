@@ -50,3 +50,17 @@ describe User do
     it { should_not be_valid }
   end
 end
+
+describe "#fixed_length_random(length) function" do
+  before { @random_number_lengths = [1, 0, 1241234, 16, 25] }
+
+  it "should give back a number of the correct length" do
+    @random_number_lengths.each do |random_number|
+      if random_number == 0
+        expect(fixed_length_random(random_number)).to eq nil
+      else
+        expect(fixed_length_random(random_number).length).to eq random_number
+      end
+    end
+  end
+end
